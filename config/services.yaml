@@ -1,0 +1,74 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    # commande pour importer les Régions (dren)    
+    app.command.importCities:
+        class: App\Command\ImportCitiesCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-cities' }
+    # commande pour importer les CISCO (dren)    
+    app.command.importCisco:
+        class: App\Command\ImportCiscoCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-cisco' }
+     # commande pour importer les Communes    
+    app.command.importCommunes:
+        class: App\Command\ImportCommunesCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-communes' } 
+     # commande pour importer les ZAP   
+    app.command.importZap:
+        class: App\Command\ImportZapCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-zap' } 
+     # commande pour importer les Fokotany   
+    app.command.importFokontany:
+        class: App\Command\ImportFokontanyCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-fokontany' }
+     # commande pour importer les Etablissements   
+    app.command.importEtablissement:
+        class: App\Command\ImportEtablissementCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-etablissement' }  
+     # commande pour importer les villages   
+    app.command.importVillage:
+        class: App\Command\ImportVillageCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-villages' } 
+     # commande pour importer les Enseigants   
+    app.command.importEnseignant:
+        class: App\Command\ImportEnseignantCommand
+        tags:
+        - { name: 'console.command', command: 'app:import-enseignants' }                               
+        
+    #app.command.importRegions:
+       # class: App\Command\ImportRegionCommand
+       # tags:
+        #- { name: 'console.command', command: 'app:import-regions' }        
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Command/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+   
+    
+
+
+

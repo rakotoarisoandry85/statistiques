@@ -1,0 +1,12 @@
+
+{{ form_start(form, {'action': path('app_liste_commune'), 'method': 'POST'}) }}
+    {#{ form_row(form.dren) }}
+    {#{ form_row(form.ciscos) }#}
+{{ form_end(form) }}
+{#
+{{ form_start(formC, {'action': path('app_liste_commune'), 'method': 'POST'}) }}
+    { form_row(form.dren) }}
+    {#{ form_row(form.ciscos) }
+{{ form_end(formC) }}
+
+#}

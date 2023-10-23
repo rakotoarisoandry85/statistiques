@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Effectif{% endblock %}
+
+{% block body %}
+    <h1>Effectif</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Cisco</th>
+                <td>{{ effectif.cisco }}</td>
+            </tr>
+            <tr>
+                <th>Valeur</th>
+                <td>{{ effectif.valeur }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ effectif.createdAt ? effectif.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{ effectif.total }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_effectif_index') }}">back to list</a>
+
+    <a href="{{ path('app_effectif_edit', {'niveau': effectif.niveau}) }}">edit</a>
+
+    {{ include('effectif/_delete_form.html.twig') }}
+{% endblock %}

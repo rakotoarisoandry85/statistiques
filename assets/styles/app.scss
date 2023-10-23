@@ -1,0 +1,12 @@
+
+/* Custom Deep-purple version */
+
+// Override default variables
+$primary-500: #673ab7;
+$primary-600: #5e35b1;
+$primary-700: #512da8;
+
+// Import Pico
+@import'~@picocss/pico/scss/pico.scss';
+
+@import '~sweetalert2/src/sweetalert2';

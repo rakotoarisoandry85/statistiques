@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+      <h1>Hello, world!</h1>
+
+ {{ include('effectif/_form.html.twig') }}
+
+     <div class="container my-5">
+        <div class="row">
+
+            <div class="col-xl-4 mb-5">
+                {% include '_partials/_card.html.twig'
+                    with {
+                    'header': 'Coffre-fort',
+                    'text': 'Le coffre-fort est protégé par un mot de passe',
+                    'buttonClass': 'safeDepositBoxBtn',
+                    'buttonText': 'Accéder au coffre-fort'
+                } %}
+            </div>
+
+            <div class="col-xl-4 mb-5">
+                {% include '_partials/_card.html.twig'
+                    with {
+                    'header': "S'inscrire",
+                    'text': 'Inscription gratuite',
+                    'buttonClass': 'registerBtn',
+                    'buttonText': "S'inscrire"
+                } %}
+            </div>
+
+            <div class="col-xl-4">
+                {% include '_partials/_card.html.twig'
+                    with {
+                    'header': "Changer la couleur de l'arrière-plan",
+                    'text': "Changer la couleur de l'arrière-plan",
+                    'buttonClass': 'changeBackgroundColorBtn',
+                    'buttonText': "Changer la couleur"
+                } %}
+            </div>
+
+            <div class="col-xl-4">
+                {% include '_partials/_card.html.twig'
+                    with {
+                    'header': "Envoie message de l'arrière-plan",
+                    'text': "Permettant d'envoyer un message de l'arrière-plan",
+                    'buttonClass': 'envoieMessageBtn',
+                    'buttonText': "Envoyer"
+                } %}
+            </div>
+
+            
+            <div class="col-xl-4">
+                {% include '_partials/_card.html.twig'
+                    with {
+                    'header': "Faites votre choix!",
+                    'text': "Choisissez le theme que vous voulez!",
+                    'buttonClass': 'selectOneThingBtn',
+                    'props':  {
+                                'ALOATRA-MANGORO': {
+                                amparafaravola: 'Amparafaravola',
+                                andilana: 'Andilana',
+                                ambatondrazaka: 'Ambatondrazaka',
+                                moramanga: 'Moramanga'
+                                },
+                                'DIANA': {
+                                diego: 'Diego',
+                                analanjorofo: 'Analanjorofo',
+                               
+                                },
+                                'SAVA':  {
+                                    sambava: 'Sambava',
+                                    andapa: 'Andapa',
+                                    antalaha: 'Antalaha',
+                                    vohemar: 'Vohemar'
+                                }
+                             } ,
+                    'buttonText': "Cliquer"
+                } %}
+            </div>
+
+        </div>
+ 
+
+<div class="grid">
+        <div>
+            <article data-theme="dark">
+            <h1> je suis un article 1...</h1>          
+            </article>
+        </div> 
+        <div>
+            <article data-theme="light">
+            <h1> je suis un article 2...</h1>          
+            </article>
+        </div>  
+        <div>
+            <article data-theme="dark">
+            <h1> je suis un article 3...</h1>          
+            </article>
+        </div> 
+        <div>
+            <article data-theme="light">
+            <h1> je suis un article 4...</h1>          
+            </article>
+        </div> 
+        
+    </div>    
+<article>
+    <table>
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+        </tr>
+        <tr>
+            <th scope="row">1</th>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+        </tr>
+        <tr>
+            <th scope="row">1</th>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+        </tr>
+  </tbody>
+  <tfoot>
+            <tr>
+                <th scope="col">#</th>
+                <td scope="col">Total</td>
+                <td scope="col">Total</td>
+                <td scope="col">Total</td>
+                <td scope="col">Total</td>
+                <td scope="col">Total</td>
+            </tr>
+  </tfoot>
+</table>
+</article>
+
+
+{% endblock %}

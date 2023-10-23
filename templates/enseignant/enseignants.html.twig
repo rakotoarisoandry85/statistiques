@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello EnseignantController!{% endblock %}
+
+{% block body %}
+
+<h1>Liste des Enseignants &#128526;</h1>
+
+ {{ include('_partials/_formEnseignant.html.twig') }}
+    
+<body >
+
+    <figure>
+        <table role="grid">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col"><h6>Fokontany </h6></th>
+                    <th scope="col"><h6>Etablissement</h6></th>
+                    <th scope="col"><h6>CIN</h6></th>                   
+                    <th scope="col"><h6>Nom et Prénom</h6></th>
+                    <th scope="col"><h6>Date de Naissance</h6></th>                
+                    <th scope="col"><h6>Sexe</h6></th> 
+                    <th scope="col"><h6>Code fonction</h6></th>
+                    <th scope="col"><h6>Code statut</h6></th>                               
+                    <th scope="col"><h6>Statut</h6></th>
+                    <th scope="col"><h6>Agent etat admin</h6></th>
+                    </h1>                                                              
+                </tr>
+            </thead>
+            <tbody>
+                {% for enseignant in enseignants %}
+                <tr>           
+                    <th scope="row">{{enseignant.id}}</th>
+                        <td scope="col">{{ enseignant.fokoEnseignant }} </td> 
+                        <td scope="col">{{ enseignant.etabenseignant }} </td>          
+                        <td scope="col">{{ enseignant.cin }} </td>          
+                        <td scope="col">{{ enseignant.nomPrenoms }} </td>                 
+                        <td scope="col">{{ enseignant.dateNaissance }} </td>
+                        {% if enseignant.sexe == "F" %}
+                                <td style="background-color:#FFC040" scope="col">{{ enseignant.sexe }} </td> 
+                            {% else %}
+                                <td style="background-color:#6478FF" scope="col">{{ enseignant.sexe }} </td>
+                        {% endif %}                  
+                        <td scope="col">{{ enseignant.codeFonction }} </td> 
+                        <td scope="col">{{ enseignant.codeStatut }} </td>          
+                        <td scope="col">{{ enseignant.statut }} </td> 
+                        <td scope="col">{{ enseignant.agentEtatAdmin }} </td>                                                       
+                </tr> 
+            {% endfor %}    
+            </tbody>
+        </table>
+    </figure>           
+</article>
+        <div class="container">
+            <nav class="app-pagination">
+	            <ul class="pagination-justify-content-center">
+	                {{ knp_pagination_render(enseignants) }}
+	            </ul>
+            </nav>
+        </div>    
+{% endblock %}

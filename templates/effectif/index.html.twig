@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Effectif index{% endblock %}
+
+{% block body %}
+    <h1>Effectif index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Niveau</th>
+                <th>Cisco</th>
+                <th>Valeur</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for effectif in effectifs %}
+            <tr>
+
+                <td>{{ effectif.niveau }}</td>
+                <td>{{ effectif.cisco }}</td>
+
+                <td>{{ effectif.valeur }}</td>
+                <td>{{ effectif.createdAt ? effectif.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ effectif.total }}</td>
+                <td>
+                    <a href="{{ path('app_effectif_show', {'niveau': effectif.niveau}) }}">show</a>
+                    <a href="{{ path('app_effectif_edit', {'niveau': effectif.niveau}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_effectif_new') }}">Create new</a>
+{% endblock %}
